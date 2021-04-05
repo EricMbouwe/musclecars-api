@@ -5,13 +5,17 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.create(user_params)
+    user = User.create!(user_params)
 
     if user.save
       session[:user_id] = user.id
-      render json: { user: user }
+      
+      render json: {
+        user: user,
+        status: :created
+      }
     else
-      render json: { status: 401 }
+      render json: { status: 500 }
     end
   end
 
