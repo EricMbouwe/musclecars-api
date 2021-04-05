@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
         status: :created,
         logged_in: true,
         user: user,
-        session: session,
+        session: session
       }
     else
       render json: { status: 401 }
@@ -24,6 +24,6 @@ class SessionsController < ApplicationController
 
   def destroy
     reset_session
-    render json: { message: "session destroyed" }
+    render json: { message: 'session destroyed' }
   end
 end
