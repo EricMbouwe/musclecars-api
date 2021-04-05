@@ -1,10 +1,6 @@
 class SessionsController < ApplicationController
-  include currentUserConcern
-
   def index
-    render json: {
-      session: session
-    }
+    render json: { session: session }
   end
 
   def create
