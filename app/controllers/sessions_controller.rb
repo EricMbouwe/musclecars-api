@@ -1,8 +1,6 @@
 class SessionsController < ApplicationController
   def index
-    render json: {
-      session: session
-    }
+    render json: { session: session }
   end
 
   def create
@@ -11,19 +9,35 @@ class SessionsController < ApplicationController
 
     if user
       session[:user_id] = user.id
+      session[:expiry] = 300
+
       render json: {
         status: :created,
         logged_in: true,
-        user: user,
-        session: session
+        user: user
       }
     else
       render json: { status: 401 }
     end
   end
 
-  def destroy
+  def logged_in
+    if @current_user
+      render json: {
+        logged_in: true,
+        user: @current_user
+      }
+    else
+      render json: { logged_in: false }
+    end
+  end
+
+  def logout
     reset_session
-    render json: { message: 'session destroyed' }
+    render json: {
+      logged_out: true,
+      status: 200,
+      message: 'session destroyed'
+    }
   end
 end
