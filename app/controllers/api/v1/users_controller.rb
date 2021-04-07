@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Api::V1::UsersController < ApplicationController
   def index
     users = User.all
     render json: users
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /cars/1
+  # GET /users/1
   def show
     user = User.find(params[:id])
     render json: user
