@@ -3,7 +3,7 @@ class PicturesController < ApplicationController
 
   # GET /pictures
   def index
-    @pictures = Picture.all
+    @pictures = @car.pictures.all
 
     render json: @pictures
   end
@@ -15,7 +15,7 @@ class PicturesController < ApplicationController
 
   # POST /pictures
   def create
-    @picture = Picture.new(picture_params)
+    @picture = @car.pictures.build(picture_params)
 
     if @picture.save
       render json: @picture, status: :created, location: @picture
@@ -39,9 +39,12 @@ class PicturesController < ApplicationController
   end
 
   private
+    def get_car
+      @car = Car.find(params[:car_id])
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_picture
-      @picture = Picture.find(params[:id])
+      @picture = @car.pictures.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
