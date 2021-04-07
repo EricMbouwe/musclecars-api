@@ -1,9 +1,10 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show, :update, :destroy]
+  before_action :get_user
 
   # GET /appointments
   def index
-    @appointments = Appointment.all
+    @appointments = @user.appointments
 
     render json: @appointments
   end
@@ -15,7 +16,7 @@ class AppointmentsController < ApplicationController
 
   # POST /appointments
   def create
-    @appointment = Appointment.new(appointment_params)
+    @appointment = @user.appointments.build(appointment_params)
 
     if @appointment.save
       render json: @appointment, status: :created, location: @appointment
@@ -40,8 +41,12 @@ class AppointmentsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def get_user
+      @user = User.find(params[:user_id])
+    end
+
     def set_appointment
-      @appointment = Appointment.find(params[:id])
+      @appointment = @user.appointments.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

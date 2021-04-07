@@ -23,3 +23,9 @@ Things you may want to cover:
 
 * ...
 # muscle-cars
+
+# Generate model serializers
+` rails g serializer model_name `
+
+# Get routes in the browser
+` http://localhost:3000/rails/info/routes `
