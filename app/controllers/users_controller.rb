@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def index
     users = User.all
     render json: { users: users }
+    # render json: users, only: [:name, :email]
   end
 
   def create

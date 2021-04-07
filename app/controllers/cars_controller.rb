@@ -6,6 +6,7 @@ class CarsController < ApplicationController
     @cars = Car.all
 
     render json: @cars
+    #render json: @cars.include(:appointments)
   end
 
   # GET /cars/1
