@@ -1,5 +1,6 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :update, :destroy]
+  before_action :get_car
 
   # GET /pictures
   def index
