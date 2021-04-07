@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   
   namespace :api do
     namespace :v1 do
-      resources :cars
+      resources :cars do
+        resources :pictures
+      end
       resources :users, only: [:index, :create, :show] do
         resources :appointments
       end
