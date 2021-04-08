@@ -1,10 +1,10 @@
-class PicturesController < ApplicationController
+class Api::V1::PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :update, :destroy]
   before_action :get_car
 
   # GET /pictures
   def index
-    @pictures = @car.pictures.all
+    @pictures = @car.pictures
 
     render json: @pictures
   end
@@ -50,6 +50,6 @@ class PicturesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def picture_params
-      params.fetch(:picture, {})
+      params.fetch(:picture, {}).permit(:url)
     end
 end
