@@ -1,5 +1,6 @@
 class Api::V1::CarsController < ApplicationController
   before_action :set_car, only: [:show, :update, :destroy]
+  skip_before_action :require_login, only: [:index]
 
   # GET /cars
   def index
