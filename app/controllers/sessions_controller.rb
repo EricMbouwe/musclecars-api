@@ -1,7 +1,5 @@
 class SessionsController < ApplicationController
-  def index
-    render json: { session: session }
-  end
+  skip_before_action :require_login, only: [:create]
 
   def create
     # ser = User.find_by(email: params["user"]["email"]).try(:authenticate, params["user"]["password"])
