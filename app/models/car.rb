@@ -3,7 +3,5 @@ class Car < ApplicationRecord
   has_many :appointments
   has_many :users, through: :appointments
 
-  validates_presence_of :name
-  validates_presence_of :description
-  validates_presence_of :price
+  validates_presence_of :name, :description, :price
 end

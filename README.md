@@ -29,3 +29,6 @@ Things you may want to cover:
 
 # Get routes in the browser
 ` http://localhost:3000/rails/info/routes `
+
+# Clear the server PID file
+` kill -9 $(lsof -i tcp:3000 -t) `
