@@ -1,21 +1,20 @@
 Rails.application.routes.draw do
-  # root 'static#home'
-  root 'cars#index'
+  root 'static#home'
   resources :static, only: [:home]
   resources :sessions, only: [:create]
   delete :logout, to: 'sessions#logout'
   get :logged_in, to: 'sessions#logged_in'
 
   namespace :admin do
-    ressources :cars do
-      ressources :pictures
+    resources :cars do
+      resources :pictures
     end
 
     resources :users do
       resources :appointments
     end
 
-    root to: 'cars#index'
+    root 'cars#index'
   end
   
   namespace :api do
