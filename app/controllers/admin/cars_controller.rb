@@ -1,20 +1,17 @@
 class Admin::CarsController < Admin::BaseController
   before_action :set_car, only: %i[show update destroy]
 
-  # GET /cars
   def index
     @cars = Car.all
-
-    render json: @cars
+    
     # render json: @cars.include(:appointments)
+    render json: @cars
   end
 
-  # GET /cars/1
   def show
     render json: @car
   end
 
-  # POST /cars
   def create
     @car = Car.new(car_params)
 
@@ -25,7 +22,6 @@ class Admin::CarsController < Admin::BaseController
     end
   end
 
-  # PATCH/PUT /cars/1
   def update
     if @car.update(car_params)
       render json: @car
@@ -34,19 +30,16 @@ class Admin::CarsController < Admin::BaseController
     end
   end
 
-  # DELETE /cars/1
   def destroy
     @car.destroy
   end
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_car
     @car = Car.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def car_params
     params.require(:car).permit(:name, :price, :description)
   end

@@ -1,4 +1,6 @@
 class Api::V1::UsersController < ApplicationController
+  skip_before_action :require_login, only: [:create]
+
   def create
     user = User.create!(
       name: params[:name],
@@ -19,7 +21,6 @@ class Api::V1::UsersController < ApplicationController
     end
   end
   
-  # PATCH/PUT /users/1
   def update
     user = User.find(params[:id])
 

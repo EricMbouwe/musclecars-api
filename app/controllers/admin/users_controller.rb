@@ -8,7 +8,7 @@ class Admin::UsersController < Admin::BaseController
 
   def create
     # user = User.create!(user_params)
-    user = User.create!(
+    user = User.create(
       name: params[:name],
       email: params[:email],
       password: params[:password],
@@ -27,13 +27,11 @@ class Admin::UsersController < Admin::BaseController
     end
   end
 
-  # GET /users/1
   def show
     user = User.find(params[:id])
     render json: user
   end
   
-  # PATCH/PUT /users/1
   def update
     user = User.find(params[:id])
 
