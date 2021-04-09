@@ -40,4 +40,4 @@ $ bundle exec rspec
 $ bundle exec rspec spec/models
 
 # Run a single spec file
-$ bundle exec rspec spec/controllers/name_controller_spec.rb
+$ bundle exec rspec spec/controllers/names_controller_spec.rb
