@@ -6,7 +6,10 @@ class ApplicationController < ActionController::API
 
   def require_login
     unless @current_user
-      render json: { message: 'you do not belong there (Not a User)' }
+      render json: { 
+        message: 'you do not belong there (Not a User)',
+        status: 'AD'
+      }
     end
   end
 
