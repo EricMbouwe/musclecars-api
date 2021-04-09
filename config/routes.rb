@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'static#home'
+  #root 'static#home'
+  root 'api/v1/cars#index'
   resources :static, only: [:home]
   resources :sessions, only: [:create]
   delete :logout, to: 'sessions#logout'
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :cars, only: [:index, :show]
-      resources :users, only: [:create] do
+      resources :users, only: [:create, :update] do
         resources :appointments, only: [:index, :create, :update, :destroy]
       end
     end
