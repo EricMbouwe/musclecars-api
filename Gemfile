@@ -45,6 +45,7 @@ end
 
 group :test do
   gem 'faker'
+  gem 'database_cleaner-active_record', '~> 2.0'
   gem 'guard-rspec'
   gem 'shoulda-matchers'
 end
