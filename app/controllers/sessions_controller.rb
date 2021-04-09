@@ -1,8 +1,10 @@
 class SessionsController < ApplicationController
   skip_before_action :require_login, only: %i[create logged_in index]
 
+  @@mysessions = []
+
   def index
-    render json: session
+    render json: @@mysessions
   end
 
   def create
@@ -12,6 +14,8 @@ class SessionsController < ApplicationController
     if user
       session[:user_id] = user.id
       session[:expiry] = 300
+
+      @@mysessions.push(session) unless @@mysessions.include?(session[:user_id])
 
       render json: {
         status: :created,
