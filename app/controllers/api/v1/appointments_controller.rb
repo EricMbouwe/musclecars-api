@@ -1,6 +1,6 @@
 class Api::V1::AppointmentsController < ApplicationController
-  before_action :set_appointment, only: [:show, :update, :destroy]
-  before_action :get_user
+  before_action :set_appointment, only: %i[show update destroy]
+  before_action :find_user
 
   # GET /appointments
   def index
@@ -40,17 +40,18 @@ class Api::V1::AppointmentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def get_user
-      @user = User.find(params[:user_id])
-    end
 
-    def set_appointment
-      @appointment = @user.appointments.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def find_user
+    @user = User.find(params[:user_id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def appointment_params
-      params.require(:appointment).permit(:appointment_date, :city)
-    end
+  def set_appointment
+    @appointment = @user.appointments.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def appointment_params
+    params.require(:appointment).permit(:appointment_date, :city)
+  end
 end

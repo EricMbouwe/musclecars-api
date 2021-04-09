@@ -1,6 +1,6 @@
 class Api::V1::PicturesController < ApplicationController
-  before_action :set_picture, only: [:show, :update, :destroy]
-  before_action :get_car
+  before_action :set_picture, only: %i[show update destroy]
+  before_action :find_car
 
   # GET /pictures
   def index
@@ -40,16 +40,18 @@ class Api::V1::PicturesController < ApplicationController
   end
 
   private
-    def get_car
-      @car = Car.find(params[:car_id])
-    end
-    # Use callbacks to share common setup or constraints between actions.
-    def set_picture
-      @picture = @car.pictures.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def picture_params
-      params.fetch(:picture, {}).permit(:url)
-    end
+  def find_car
+    @car = Car.find(params[:car_id])
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_picture
+    @picture = @car.pictures.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def picture_params
+    params.fetch(:picture, {}).permit(:url)
+  end
 end

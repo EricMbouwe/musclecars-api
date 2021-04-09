@@ -1,5 +1,5 @@
 class Api::V1::CarsController < ApplicationController
-  before_action :set_car, only: [:show, :update, :destroy]
+  before_action :set_car, only: %i[show update destroy]
   skip_before_action :require_login, only: [:index]
 
   # GET /cars
@@ -7,7 +7,7 @@ class Api::V1::CarsController < ApplicationController
     @cars = Car.all
 
     render json: @cars
-    #render json: @cars.include(:appointments)
+    # render json: @cars.include(:appointments)
   end
 
   # GET /cars/1
@@ -41,13 +41,14 @@ class Api::V1::CarsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_car
-      @car = Car.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def car_params
-      params.require(:car).permit(:name, :price, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_car
+    @car = Car.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def car_params
+    params.require(:car).permit(:name, :price, :description)
+  end
 end

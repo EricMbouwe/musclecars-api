@@ -5,10 +5,10 @@ class ApplicationController < ActionController::API
   private
 
   def require_login
-    unless @current_user
-      flash[:error] = "You must be logged in to access this section"
-      redirect_to new_login_url # halts request cycle
-    end
+    # if !@current_user
+    #   flash[:error] = "You must be logged in to access this section"
+    #   redirect_to new_login_url # halts request cycle
+    # end
   end
 
   def set_current_user

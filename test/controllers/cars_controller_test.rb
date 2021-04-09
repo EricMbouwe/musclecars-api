@@ -24,7 +24,10 @@ class CarsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update car' do
-    patch car_url(@car), params: { car: { description: @car.description, name: @car.name, price: @car.price } }, as: :json
+    patch car_url(@car), params: {
+      car: { description: @car.description, name: @car.name, price: @car.price }
+    }, as: :json
+
     assert_response 200
   end
 
