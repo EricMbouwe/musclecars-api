@@ -41,3 +41,6 @@ $ bundle exec rspec spec/models
 
 # Run a single spec file
 $ bundle exec rspec spec/controllers/names_controller_spec.rb
+
+# Generate fake password
+` BCrypt::Password.create('azerty') `
