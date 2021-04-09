@@ -1,6 +1,5 @@
-class Admin::CarsController < ApplicationController
+class Admin::CarsController < Admin::BaseController
   before_action :set_car, only: %i[show update destroy]
-  skip_before_action :require_login, only: [:index]
 
   # GET /cars
   def index
