@@ -1,9 +1,30 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :sessions, only: [:index, :create]
-  resources :users, only: [:index, :create]
+  root 'static#home'
   resources :static, only: [:home]
+  resources :sessions, only: [:create]
   delete :logout, to: 'sessions#logout'
   get :logged_in, to: 'sessions#logged_in'
-  root 'static#home'
+
+  namespace :admin do
+    resources :cars do
+      resources :pictures
+    end
+
+    resources :users do
+      resources :appointments
+    end
+
+    root 'cars#index'
+  end
+  
+  namespace :api do
+    namespace :v1 do
+      resources :cars, only: [:index, :show] do
+        resources :pictures, Only: [:index]
+      end
+      resources :users, only: [:create] do
+        resources :appointments, only: [:index, :create, :update, :destroy]
+      end
+    end
+  end
 end
