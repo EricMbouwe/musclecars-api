@@ -20,7 +20,7 @@ class Api::V1::UsersController < ApplicationController
       render json: { status: 500 }
     end
   end
-  
+
   def update
     user = User.find(params[:id])
 

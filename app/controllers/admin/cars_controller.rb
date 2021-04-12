@@ -3,7 +3,7 @@ class Admin::CarsController < Admin::BaseController
 
   def index
     @cars = Car.all
-    
+
     # render json: @cars.include(:appointments)
     render json: @cars
   end

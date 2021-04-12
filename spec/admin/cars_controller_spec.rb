@@ -11,28 +11,28 @@ RSpec.describe Admin::CarsController, type: :controller do
         get :index
         res = @response.parsed_body
 
-        #p res
-        #p user
-        #p car
-        #p session
+        # p res
+        # p user
+        # p car
+        # p session
 
         assert_response :success
-        #assert_equal 'porshe', res[0]['name']
+        # assert_equal 'porshe', res[0]['name']
       end
 
       it 'does not allow our regular user to view cars' do
         user = FactoryBot.build(:user, role: 'user')
         @request.session[:user_id] = user.id
-        
+
         get :index
 
         res = @response.parsed_body
-#
-        #p res
-        #p session
+        #
+        # p res
+        # p session
 
         assert_equal 'AD', res['status']
-        #assert_equal 'you do not belong there (Not an Admin)', res['message']
+        # assert_equal 'you do not belong there (Not an Admin)', res['message']
       end
     end
   end

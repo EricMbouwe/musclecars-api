@@ -31,7 +31,7 @@ class Admin::UsersController < Admin::BaseController
     user = User.find(params[:id])
     render json: user
   end
-  
+
   def update
     user = User.find(params[:id])
 

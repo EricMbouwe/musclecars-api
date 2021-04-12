@@ -3,7 +3,7 @@ class Admin::BaseController < ApplicationController
 
   def ensure_admin_user
     unless @current_user and is_admin?
-      render json: { 
+      render json: {
         message: 'you do not belong there (Not an Admin)',
         status: 'AD'
       }
@@ -11,7 +11,7 @@ class Admin::BaseController < ApplicationController
   end
 
   private
-  
+
   def is_admin?
     @current_user.role === 'admin'
   end
