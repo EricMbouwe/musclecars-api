@@ -1,5 +1,6 @@
 class Api::V1::UsersController < ApplicationController
   skip_before_action :require_login, only: [:create]
+  skip_before_action :set_current_user, only: [:create]
 
   def create
     user = User.create!(

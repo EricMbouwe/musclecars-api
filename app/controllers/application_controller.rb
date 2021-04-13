@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-  before_action :set_current_user, only: [:require_login]
+  before_action :set_current_user
   before_action :require_login
 
   private
