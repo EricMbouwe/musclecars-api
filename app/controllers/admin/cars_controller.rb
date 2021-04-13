@@ -4,7 +4,6 @@ class Admin::CarsController < Admin::BaseController
   def index
     @cars = Car.all
 
-    # render json: @cars.include(:appointments)
     render json: @cars
   end
 
@@ -13,12 +12,12 @@ class Admin::CarsController < Admin::BaseController
   end
 
   def create
-    @car = Car.new(car_params)
+    @car = Car.create!(car_params)
 
     if @car.save
-      render json: @car, status: :created, location: @car
+      render json: @car
     else
-      render json: @car.errors, status: :unprocessable_entity
+      render json: @car.errors
     end
   end
 
@@ -26,7 +25,7 @@ class Admin::CarsController < Admin::BaseController
     if @car.update(car_params)
       render json: @car
     else
-      render json: @car.errors, status: :unprocessable_entity
+      render json: @car.errors
     end
   end
 

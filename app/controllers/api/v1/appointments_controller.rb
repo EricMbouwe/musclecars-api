@@ -16,9 +16,9 @@ class Api::V1::AppointmentsController < ApplicationController
     @appointment = @user.appointments.build(appointment_params)
 
     if @appointment.save
-      render json: @appointment, status: :created, location: @appointment
+      render json: @appointment
     else
-      render json: @appointment.errors, status: :unprocessable_entity
+      render json: @appointment.errors
     end
   end
 
@@ -26,7 +26,7 @@ class Api::V1::AppointmentsController < ApplicationController
     if @appointment.update(appointment_params)
       render json: @appointment
     else
-      render json: @appointment.errors, status: :unprocessable_entity
+      render json: @appointment.errors
     end
   end
 

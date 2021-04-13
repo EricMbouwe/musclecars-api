@@ -16,9 +16,9 @@ class Admin::PicturesController < Admin::BaseController
     @picture = @car.pictures.build(picture_params)
 
     if @picture.save
-      render json: @picture, status: :created, location: @picture
+      render json: @picture
     else
-      render json: @picture.errors, status: :unprocessable_entity
+      render json: @picture.errors
     end
   end
 
@@ -26,7 +26,7 @@ class Admin::PicturesController < Admin::BaseController
     if @picture.update(picture_params)
       render json: @picture
     else
-      render json: @picture.errors, status: :unprocessable_entity
+      render json: @picture.errors
     end
   end
 
