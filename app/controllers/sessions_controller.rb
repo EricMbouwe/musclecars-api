@@ -31,7 +31,7 @@ class SessionsController < ApplicationController
   end
 
   def logout
-    reset_session
+    session[:user_id] = nil
     render json: {
       logged_out: true,
       status: 200,

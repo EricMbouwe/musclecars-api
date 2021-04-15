@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  #root 'static#home'
-  #resources :static, only: [:home]
   root 'api/v1/cars#index'
   resources :sessions, only: [:create]
   delete :logout, to: 'sessions#logout'
