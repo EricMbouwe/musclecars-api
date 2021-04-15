@@ -44,3 +44,11 @@ $ bundle exec rspec spec/controllers/names_controller_spec.rb
 
 # Generate fake password
 ` BCrypt::Password.create('azerty') `
+
+# Seed the database
+` heroku run rails db:seed `
+
+It will give you 2 users you can login with
+## email | password
+- Admin: er@server.io | azerty
+- User: jo@server.io | azerty
