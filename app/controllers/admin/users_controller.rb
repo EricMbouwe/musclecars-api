@@ -2,12 +2,9 @@ class Admin::UsersController < Admin::BaseController
   def index
     users = User.all
     render json: users
-    # render json: { users: users }
-    # render json: users, only: [:name, :email]
   end
 
   def create
-    # user = User.create!(user_params)
     user = User.create(
       name: params[:name],
       email: params[:email],
