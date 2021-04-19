@@ -21,6 +21,7 @@ gem 'hirb'
 # gem 'image_processing', '~> 1.2'
 
 gem 'active_model_serializers', '~> 0.10.12'
+gem 'gon'
 gem 'rubocop', '~>0.81.0'
 
 # Reduces boot times through caching; required in config/boot.rb
