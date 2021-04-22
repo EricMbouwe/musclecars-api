@@ -1,6 +1,6 @@
 class Api::V1::AppointmentsController < ApplicationController
-  before_action :set_appointment, only: %i[show update destroy]
   before_action :find_user
+  before_action :set_appointment, only: %i[show update destroy]
 
   def index
     @appointments = @user.appointments

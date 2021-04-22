@@ -1,6 +1,6 @@
 class Admin::PicturesController < Admin::BaseController
-  before_action :set_picture, only: %i[show update destroy]
   before_action :find_car
+  before_action :set_picture, only: %i[show update destroy]
 
   def index
     @pictures = @car.pictures
