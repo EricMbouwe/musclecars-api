@@ -1,6 +1,6 @@
 # Muscle Cars API
 
-This API is the backend of [Muscle Cars app](https://github.com/ericmbouwe/musclecars-app).
+This API is the Backend of [Muscle Cars app](https://github.com/ericmbouwe/musclecars-app).
 
 ![screenshot](./public/musclecarsERD.png)
 
@@ -36,7 +36,7 @@ Make sure Node.js is running on your local machine.
 
 ### Usage
 
-- Run `rails server` or `rails s -p port_number` to run in a different port
+- Run `rails server` or` rails s -p port_number` to run it in another port
 - Open a browser and go to http://localhost:3000
 
 ## Test app
@@ -78,7 +78,7 @@ It will create 2 users you can log in with
 
 # Authors
 
-Reach out to me at one of the following places!
+Contact me at one of the following addresses!
 
 👤 **Eric Mbouwe**
 
