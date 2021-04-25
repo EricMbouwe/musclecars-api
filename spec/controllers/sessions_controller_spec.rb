@@ -1,19 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe SessionsController, type: :request do
+  #let!(:user) {FactoryBot.build(:user, id: 52, name: 'eric', email: 'eri@server.io', password: 'azerty')}
+  user = FactoryBot.build(:user, id: 1, name: 'eric', email: 'eri@server.io', password: 'azerty')
   before do
-    user = FactoryBot.build(:user, id: 52, name: 'eric', email: 'eri@server.io', password: 'azerty')
-    post '/sessions', params: {
-      email: user.name,
-      password: user.password
-    }
+    login(user)
   end
 
   describe 'POST #create' do
     it 'logs in the user and returns the user informations' do
-      res = JSON.parse(response.body)
+      post '/sessions', params: {
+        email: user.name,
+        password: user.password 
+      }
 
+      res = JSON.parse(response.body)
       p res
+
       expect(res['user']).not_to be_empty
       expect(res['logged_in']).to eq true
       assert_equal 'created', res['status']

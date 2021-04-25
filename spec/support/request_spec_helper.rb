@@ -15,4 +15,11 @@ module RequestSpecHelper
     allow_any_instance_of(ApplicationController).to receive(:require_login).and_return(user)
     allow_any_instance_of(ApplicationController).to receive(:set_current_user).and_return(user)
   end
+
+  def login(user)
+    post sessions_path, params: {
+      email: user.email,
+      password: user.password
+    }
+  end
 end
