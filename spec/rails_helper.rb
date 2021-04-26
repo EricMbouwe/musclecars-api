@@ -26,7 +26,6 @@ RSpec.configure do |config|
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
 
-
   # adds
   Shoulda::Matchers.configure do |configs|
     configs.integrate do |with|

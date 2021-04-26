@@ -16,7 +16,7 @@ RSpec.describe Api::V1::UsersController, type: :request do
       expect(res['user']).not_to be_empty
       assert_equal 'created', res['status']
     end
-    
+
     it 'returns status code 200' do
       expect(response).to have_http_status(200)
       assert_response :success
