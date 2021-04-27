@@ -16,7 +16,7 @@ eric.update(role: 'admin', password: 'azerty')
 
 Car.create([
   { name: 'Renault Arkana', price: 500, description: "The brand's first Coupe SUV arrives in France" },
-  { name: 'Pininfarina Residenza', price: 700, description: 'A high-end wallbox for the Battista' }
+  { name: 'Pininfarina Residenza', price: 700, description: 'A high-end wallbox for the Battista' },
   { name: 'Maserati MC20', price: 480, description: 'The MC20 is a mid-engined supercar from Italian automaker Maserati produced from 2020.' }
 ])
 
@@ -32,5 +32,5 @@ Picture.create([
   { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Maserati_MC20_003.jpg/1200px-Maserati_MC20_003.jpg', imageable_id: 3, imageable_type: 'Car' },
   { url: 'https://www.motorlegend.com/modules/breve/photos/high/les-maserati-ghibli-et-quattroporte-trofeo-en-approche-21487-1-P.jpg', imageable_id: 3, imageable_type: 'Car' },
   { url: 'https://s3-eu-west-1.amazonaws.com/digischool-public/marketing-%C3%A9tudiant/Voiture_maserati_circuit.jpg', imageable_id: 3, imageable_type: 'Car' },
-  { url: 'https://www.autoscout24.be/assets/auto/images/model/maserati/maserati-quattroporte/maserati-quattroporte-l-01.jpg', imageable_id: 3, imageable_type: 'Car' },
+  { url: 'https://www.autoscout24.be/assets/auto/images/model/maserati/maserati-quattroporte/maserati-quattroporte-l-01.jpg', imageable_id: 3, imageable_type: 'Car' }
 ])

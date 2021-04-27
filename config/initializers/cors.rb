@@ -27,7 +27,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
   end
 
   allow do
-    origins 'https://musclecarsapp.herokuapp.com/' # production server of the front-end app
+    origins 'https://musclecarsapp.herokuapp.com' # production server of the front-end app
 
     resource '*',
              headers: :any,
