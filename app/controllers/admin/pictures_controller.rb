@@ -1,40 +1,35 @@
-class Api::V1::PicturesController < ApplicationController
-  before_action :set_picture, only: %i[show update destroy]
+class Admin::PicturesController < Admin::BaseController
   before_action :find_car
+  before_action :set_picture, only: %i[show update destroy]
 
-  # GET /pictures
   def index
     @pictures = @car.pictures
 
     render json: @pictures
   end
 
-  # GET /pictures/1
   def show
     render json: @picture
   end
 
-  # POST /pictures
   def create
     @picture = @car.pictures.build(picture_params)
 
     if @picture.save
-      render json: @picture, status: :created, location: @picture
+      render json: @picture
     else
-      render json: @picture.errors, status: :unprocessable_entity
+      render json: @picture.errors
     end
   end
 
-  # PATCH/PUT /pictures/1
   def update
     if @picture.update(picture_params)
       render json: @picture
     else
-      render json: @picture.errors, status: :unprocessable_entity
+      render json: @picture.errors
     end
   end
 
-  # DELETE /pictures/1
   def destroy
     @picture.destroy
   end
@@ -45,12 +40,10 @@ class Api::V1::PicturesController < ApplicationController
     @car = Car.find(params[:car_id])
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_picture
     @picture = @car.pictures.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def picture_params
     params.fetch(:picture, {}).permit(:url)
   end
