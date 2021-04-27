@@ -1,4 +1,5 @@
 class PictureSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :url
+  belongs_to :imageable
   belongs_to :car
 end
