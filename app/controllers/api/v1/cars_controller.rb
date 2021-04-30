@@ -1,5 +1,5 @@
 class Api::V1::CarsController < ApplicationController
-  before_action :set_car, only: %i[show]
+  before_action :set_car, only: [:show]
   skip_before_action :require_login, only: [:index]
 
   def index
