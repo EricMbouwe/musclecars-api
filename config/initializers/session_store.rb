@@ -4,7 +4,7 @@
 #Rails.application.config.session_store :cookie_store, key: "_musclecars_app", domain: :all
 
 if Rails.env == "production"
-  Rails.application.config.session_store :cookie_store, key: "_musclecars_app", domain: "https://musclecarsapp.herokuapp.com"
+  Rails.application.config.session_store :cookie_store, key: "_musclecars_app", domain: "*"
 else
   Rails.application.config.session_store :cookie_store, key: "_musclecars_app"
 end
