@@ -3,9 +3,10 @@
 ## The domain is the client production domain name
 #Rails.application.config.session_store :cookie_store, key: "_musclecars_app", domain: :all
 
-if Rails.env == "production"
-  Rails.application.config.session_store :cookie_store, key: "_musclecars_app", domain: "*"
-else
-  Rails.application.config.session_store :cookie_store, key: "_musclecars_app"
-end
+# if Rails.env == "production"
+#  Rails.application.config.session_store :cookie_store, key: "_musclecars_app", domain: "musclecarsapp.herokuapp.com/"
+# else
+#  Rails.application.config.session_store :cookie_store, key: "_musclecars_app"
+# end
+Rails.application.config.session_store :cookie_store, key: "_musclecars_app", domain: "musclecarsapp.herokuapp.com"
 
