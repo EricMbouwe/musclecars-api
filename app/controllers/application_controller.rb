@@ -1,11 +1,6 @@
 class ApplicationController < ActionController::API
   before_action :set_current_user
   before_action :require_login
-  skip_before_filter :verify_authenticity_token, if: :json_request?
-
-  def json_request?
-    request.format.json?
-  end
 
   private
 
