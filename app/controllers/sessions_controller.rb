@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :verify_authenticity_token
+  protect_from_forgery with: :null_session
   skip_before_action :set_current_user, only: [:create]
   skip_before_action :require_login, only: %i[create logged_in]
 
