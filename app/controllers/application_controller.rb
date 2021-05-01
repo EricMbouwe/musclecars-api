@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::API
-  protect_from_forgery unless: -> { request.format.json? }
   before_action :set_current_user
   before_action :require_login
 
