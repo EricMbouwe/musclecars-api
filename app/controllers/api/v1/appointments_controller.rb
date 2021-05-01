@@ -1,5 +1,4 @@
 class Api::V1::AppointmentsController < ApplicationController
-  skip_before_action :verify_authenticity_token
   before_action :find_user
   before_action :set_appointment, only: %i[show update destroy]
 
