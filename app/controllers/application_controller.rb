@@ -1,9 +1,7 @@
 class ApplicationController < ActionController::API
   before_action :set_current_user
   before_action :require_login
-  protect_from_forgery with: :null_session
 
-  private
 
   def require_login
     return if @current_user

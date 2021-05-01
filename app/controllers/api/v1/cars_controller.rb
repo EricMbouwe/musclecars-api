@@ -1,6 +1,7 @@
 class Api::V1::CarsController < ApplicationController
   before_action :set_car, only: [:show]
   skip_before_action :require_login, only: [:index]
+  # skip_before_action :verify_authenticity_token
 
   def index
     @cars = Car.all
