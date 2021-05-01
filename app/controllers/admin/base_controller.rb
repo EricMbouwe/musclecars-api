@@ -1,4 +1,5 @@
 class Admin::BaseController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :ensure_admin_user
 
   def ensure_admin_user
