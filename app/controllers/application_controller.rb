@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::API
   before_action :set_current_user
-  before_action :require_login
+  # before_action :require_login
 
   def require_login
     return if @current_user
