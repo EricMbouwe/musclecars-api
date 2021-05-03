@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
   skip_before_action :set_current_user, only: [:create]
-  # skip_before_action :require_login, only: %i[create logged_in]
 
   def create
     user = User.find_by(email: params[:email]).try(:authenticate, params[:password])
