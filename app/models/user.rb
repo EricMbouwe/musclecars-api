@@ -3,6 +3,6 @@ class User < ApplicationRecord
   has_many :appointments
   has_many :cars, through: :appointments
 
-  validates_presence_of :name, :password, :email
-  validates_uniqueness_of :email
+  validates_presence_of :name, :password
+  validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: URI::MailTo::EMAIL_REGEXP }
 end

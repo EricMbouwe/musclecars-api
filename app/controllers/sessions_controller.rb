@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  skip_before_action :require_login, only: %i[create logged_in]
   skip_before_action :set_current_user, only: [:create]
 
   def create
@@ -7,7 +6,6 @@ class SessionsController < ApplicationController
 
     if user
       session[:user_id] = user.id
-      session[:expiry] = 300
 
       render json: {
         status: :created,
@@ -31,7 +29,7 @@ class SessionsController < ApplicationController
   end
 
   def logout
-    session[:user_id] = nil
+    reset_session
     render json: {
       logged_out: true,
       status: 200,
